@@ -1,5 +1,6 @@
 [install]
 exact = true
+proxy = "http://127.0.0.1:10808"
 
 [test]
 root = "./do-not-run-tests-from-root"

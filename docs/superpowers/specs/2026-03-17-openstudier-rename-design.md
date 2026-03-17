@@ -1,33 +1,33 @@
-# OpenStudier Rename Design
+# OpenStudier 更名设计
 
-Date: 2026-03-17
-Repo: GamblerIX/OpenStudier
-Domain: opencode.ai (URL unchanged, label changes to OpenStudier)
+日期: 2026-03-17
+仓库: GamblerIX/OpenStudier
+域名: opencode.ai (URL 保持不变, 文案显示为 OpenStudier)
 
-## Summary
-This spec defines a full rename of OpenCode to OpenStudier across code, packaging, docs, and UI. The rename removes all OpenCode/opencode identifiers and does not provide compatibility for old names. The domain URL stays opencode.ai, but all visible branding shifts to OpenStudier with the product positioned as an AI learning assistant.
+## 概要
+本设计规范定义将 OpenCode 全量更名为 OpenStudier, 覆盖代码、打包、文档与 UI。更名不保留任何 OpenCode/opencode 兼容路径或别名。域名 URL 继续使用 opencode.ai, 但所有可见品牌统一为 OpenStudier, 产品定位为 AI 学习助手。
 
-## Decisions
-- Rename brand and all identifiers to OpenStudier/openstudier/OPENSTUDIER.
-- Remove all opencode aliases and compatibility paths.
-- Rename CLI command and binary to openstudier.
-- Rename env vars to OPENSTUDIER_* and default data dir to ~/.openstudier.
-- Rename app ids, bundle ids, executable names, and installer filenames.
-- Update repository and release links to GamblerIX/OpenStudier.
-- Keep opencode.ai URLs but change link text and product name to OpenStudier.
+## 决策
+- 品牌与所有标识统一为 OpenStudier/openstudier/OPENSTUDIER。
+- 完全移除 opencode 兼容与别名。
+- CLI 命令与二进制更名为 openstudier。
+- 环境变量统一为 OPENSTUDIER_*, 默认数据目录为 ~/.openstudier。
+- 应用标识、包名、安装包文件名全部更名为 OpenStudier。
+- 仓库与发布链接改为 GamblerIX/OpenStudier。
+- opencode.ai URL 保留, 但链接文案与标题改为 OpenStudier。
 
-## Goals
-- Eliminate OpenCode/opencode strings from the repo except for the opencode.ai domain URL.
-- Align all user-facing copy with "OpenStudier" and "AI learning assistant".
-- Ensure packaging and distribution artifacts match the new name.
-- Maintain a clean, consistent naming scheme across code, docs, and tooling.
+## 目标
+- 仓库内不再出现 OpenCode/opencode 字符串, 仅允许 opencode.ai 的 URL。
+- 所有用户可见文案统一为 OpenStudier 与 AI 学习助手定位。
+- 打包与发布产物命名与品牌保持一致。
+- 命名规则一致、可维护、无歧义。
 
-## Non-goals
-- Domain migration away from opencode.ai.
-- Backward compatibility for opencode names or aliases.
-- Automatic migration of old config or data directories.
+## 非目标
+- 迁移域名离开 opencode.ai。
+- 保留 opencode 名称的兼容别名。
+- 自动迁移旧配置或旧数据目录。
 
-## Rename Map
+## 命名映射
 - OpenCode -> OpenStudier
 - opencode -> openstudier
 - OPENCODE -> OPENSTUDIER
@@ -36,40 +36,40 @@ This spec defines a full rename of OpenCode to OpenStudier across code, packagin
 - ~/.opencode -> ~/.openstudier
 - OPENCODE_* -> OPENSTUDIER_*
 
-## Scope by Subsystem
-- Core CLI and SDK packages, including workspace package names and paths.
-- Desktop apps (Tauri and Electron) and their app identifiers.
-- Web and Console apps, including i18n and content.
-- Docs and marketing copy across all locales.
-- Install scripts, CI, release, and packaging configs.
-- GitHub and release URLs in config and docs.
+## 范围
+- Core CLI 与 SDK 包, 包括工作区包名与路径。
+- 桌面应用 (Tauri 与 Electron) 及应用标识。
+- Web 与 Console 应用, 包括 i18n 与内容。
+- Docs 与多语言文档。
+- 安装脚本、CI、发布与打包配置。
+- GitHub 与 Release 链接。
 
-## Workstreams and Sequence
-1. Core CLI and SDK. Rename package names, directory paths, entrypoints, scripts, and workspace references. Update CLI binary name and install paths.
-2. Desktop apps. Update app ids, bundle ids, executable names, installer filenames, and UI copy.
-3. Web, Console, and Docs. Replace brand names and positioning across UI and multi-language docs. Keep opencode.ai URLs but change labels.
-4. Infra and Release. Update install scripts, package manager metadata, CI, release assets, and download pages to OpenStudier naming.
+## 工作流与顺序
+1. Core CLI 与 SDK。重命名包名、路径、入口与工作区引用, 更新 CLI 二进制名与安装路径。
+2. 桌面应用。更新 app id、bundle id、可执行文件名与安装包名称, 统一 UI 文案。
+3. Web、Console 与 Docs。全量替换品牌与定位文案, 多语言文档同步更新, opencode.ai URL 保留但显示名改为 OpenStudier。
+4. Infra 与 Release。更新安装脚本、包管理元数据、CI 与发布资产命名。
 
-## Data and Config Changes
-- All references to ~/.opencode switch to ~/.openstudier.
-- Env vars change from OPENCODE_* to OPENSTUDIER_* only.
-- No runtime compatibility or fallbacks for old names.
-- Provide manual migration guidance in docs for users who want to move data.
+## 数据与配置变更
+- 默认数据目录从 ~/.opencode 切换到 ~/.openstudier。
+- 环境变量从 OPENCODE_* 切换到 OPENSTUDIER_*。
+- 运行时不提供旧名称兼容读取。
+- 在文档中提供手动迁移旧数据的步骤说明。
 
-## Error Handling
-- Default config and data lookup paths move to the new names.
-- Missing config handling remains the same, only the path changes.
+## 错误处理
+- 默认配置与数据路径改为新名称。
+- 缺失配置的处理逻辑保持不变, 仅路径变化。
 
-## Verification Plan
-- Global search should find no OpenCode/opencode strings except opencode.ai URLs.
-- Run bun typecheck from affected package directories.
-- Regenerate JS SDK if impacted with ./packages/sdk/js/script/build.ts.
-- Smoke check build or start scripts for CLI and desktop packages.
+## 验证计划
+- 全局搜索确保仅剩 opencode.ai URL。
+- 在受影响包目录运行 bun typecheck。
+- 如 SDK 生成受影响, 执行 ./packages/sdk/js/script/build.ts。
+- 对 CLI 与桌面应用做基本 smoke 检查。
 
-## Risks and Mitigations
-- Risk: Hidden opencode strings in tests or localized content.
-- Mitigation: Global search and review of i18n and docs locales.
-- Risk: Packaging or installer names drift from code changes.
-- Mitigation: Update and verify release scripts and metadata.
-- Risk: Users lose access to old data due to path changes.
-- Mitigation: Document clear manual migration steps.
+## 风险与缓解
+- 风险: 测试与多语言内容遗漏 opencode 字符串。
+- 缓解: 全局搜索 + 逐类检查 i18n 与 docs。
+- 风险: 打包与安装产物命名不一致。
+- 缓解: 更新并核对发布脚本与元数据。
+- 风险: 用户旧数据路径不可用。
+- 缓解: 提供明确的手动迁移指引。

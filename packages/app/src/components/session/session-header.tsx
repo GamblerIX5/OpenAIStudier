@@ -1,13 +1,13 @@
-import { AppIcon } from "@opencode-ai/ui/app-icon"
-import { Button } from "@opencode-ai/ui/button"
-import { DropdownMenu } from "@opencode-ai/ui/dropdown-menu"
-import { Icon } from "@opencode-ai/ui/icon"
-import { IconButton } from "@opencode-ai/ui/icon-button"
-import { Keybind } from "@opencode-ai/ui/keybind"
-import { Spinner } from "@opencode-ai/ui/spinner"
-import { showToast } from "@opencode-ai/ui/toast"
-import { Tooltip, TooltipKeybind } from "@opencode-ai/ui/tooltip"
-import { getFilename } from "@opencode-ai/util/path"
+import { AppIcon } from "@openstudier/ui/app-icon"
+import { Button } from "@openstudier/ui/button"
+import { DropdownMenu } from "@openstudier/ui/dropdown-menu"
+import { Icon } from "@openstudier/ui/icon"
+import { IconButton } from "@openstudier/ui/icon-button"
+import { Keybind } from "@openstudier/ui/keybind"
+import { Spinner } from "@openstudier/ui/spinner"
+import { showToast } from "@openstudier/ui/toast"
+import { Tooltip, TooltipKeybind } from "@openstudier/ui/tooltip"
+import { getFilename } from "@openstudier/util/path"
 import { createEffect, createMemo, For, onCleanup, Show } from "solid-js"
 import { createStore } from "solid-js/store"
 import { Portal } from "solid-js/web"
@@ -254,8 +254,8 @@ export function SessionHeader() {
       .catch((err: unknown) => showRequestError(language, err))
   }
 
-  const centerMount = createMemo(() => document.getElementById("opencode-titlebar-center"))
-  const rightMount = createMemo(() => document.getElementById("opencode-titlebar-right"))
+  const centerMount = createMemo(() => document.getElementById("openstudier-titlebar-center"))
+  const rightMount = createMemo(() => document.getElementById("openstudier-titlebar-right"))
 
   return (
     <>

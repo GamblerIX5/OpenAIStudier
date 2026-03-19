@@ -1,12 +1,12 @@
 import "@/index.css"
-import { I18nProvider } from "@opencode-ai/ui/context"
-import { DialogProvider } from "@opencode-ai/ui/context/dialog"
-import { FileComponentProvider } from "@opencode-ai/ui/context/file"
-import { MarkedProvider } from "@opencode-ai/ui/context/marked"
-import { File } from "@opencode-ai/ui/file"
-import { Font } from "@opencode-ai/ui/font"
-import { Splash } from "@opencode-ai/ui/logo"
-import { ThemeProvider } from "@opencode-ai/ui/theme"
+import { I18nProvider } from "@openstudier/ui/context"
+import { DialogProvider } from "@openstudier/ui/context/dialog"
+import { FileComponentProvider } from "@openstudier/ui/context/file"
+import { MarkedProvider } from "@openstudier/ui/context/marked"
+import { File } from "@openstudier/ui/file"
+import { Font } from "@openstudier/ui/font"
+import { Splash } from "@openstudier/ui/logo"
+import { ThemeProvider } from "@openstudier/ui/theme"
 import { MetaProvider } from "@solidjs/meta"
 import { type BaseRouterProps, Navigate, Route, Router } from "@solidjs/router"
 import { type Duration, Effect } from "effect"
@@ -72,7 +72,7 @@ function UiI18nBridge(props: ParentProps) {
 
 declare global {
   interface Window {
-    __OPENCODE__?: {
+    __OPENSTUDIER__?: {
       updaterEnabled?: boolean
       deepLinks?: string[]
       wsl?: boolean

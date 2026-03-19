@@ -93,17 +93,17 @@ async function seedStorage(page: Page, input: { directory: string; extra?: strin
   await seedProjects(page, input)
   await page.addInitScript(() => {
     const win = window as E2EWindow
-    win.__opencode_e2e = {
-      ...win.__opencode_e2e,
+    win.__openstudier_e2e = {
+      ...win.__openstudier_e2e,
       terminal: {
         enabled: true,
         terminals: {},
       },
     }
     localStorage.setItem(
-      "opencode.global.dat:model",
+      "openstudier.global.dat:model",
       JSON.stringify({
-        recent: [{ providerID: "opencode", modelID: "big-pickle" }],
+        recent: [{ providerID: "openstudier", modelID: "big-pickle" }],
         user: [],
         variant: {},
       }),

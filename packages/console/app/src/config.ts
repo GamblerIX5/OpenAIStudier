@@ -7,7 +7,7 @@ export const config = {
 
   // GitHub
   github: {
-    repoUrl: "https://github.com/anomalyco/opencode",
+    repoUrl: "https://github.com/GamblerIX/OpenStudier",
     starsFormatted: {
       compact: "120K",
       full: "120,000",
@@ -16,8 +16,8 @@ export const config = {
 
   // Social links
   social: {
-    twitter: "https://x.com/opencode",
-    discord: "https://discord.gg/opencode",
+    twitter: "https://x.com/openstudier",
+    discord: "https://discord.gg/openstudier",
   },
 
   // Static stats (used on landing page)

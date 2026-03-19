@@ -1,12 +1,12 @@
 {
-  "name": "@opencode-ai/desktop-electron",
+  "name": "@openstudier/desktop-electron",
   "private": true,
   "version": "1.2.25",
   "type": "module",
   "license": "MIT",
   "homepage": "https://opencode.ai",
   "author": {
-    "name": "OpenCode",
+    "name": "OpenStudier",
     "email": "hello@opencode.ai"
   },
   "scripts": {
@@ -20,12 +20,12 @@
     "package:mac": "electron-builder --mac --config electron-builder.config.ts",
     "package:win": "electron-builder --win --config electron-builder.config.ts",
     "package:linux": "electron-builder --linux --config electron-builder.config.ts",
-    "native:build": "bun install --cwd native"
+    "native:build": "bun install --registry=https://registry.npmjs.org --cwd native"
   },
   "main": "./out/main/index.js",
   "dependencies": {
-    "@opencode-ai/app": "workspace:*",
-    "@opencode-ai/ui": "workspace:*",
+    "@openstudier/app": "workspace:*",
+    "@openstudier/ui": "workspace:*",
     "@solid-primitives/i18n": "2.2.1",
     "@solid-primitives/storage": "catalog:",
     "@solidjs/meta": "catalog:",

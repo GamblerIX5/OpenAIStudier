@@ -1,19 +1,19 @@
 ---
 title: Zen
-description: opencode tarafından sağlanan seçilmiş modeller listesi.
+description: openstudier tarafından sağlanan seçilmiş modeller listesi.
 ---
 
 import config from "../../../../config.mjs"
 export const console = config.console
 export const email = `mailto:${config.email}`
 
-OpenCode Zen, opencode ekibi tarafından test edilip doğrulanmış modellerin bir listesidir.
+OpenStudier Zen, openstudier ekibi tarafından test edilip doğrulanmış modellerin bir listesidir.
 
 :::note
-OpenCode Zen şu anda beta aşamasındadır.
+OpenStudier Zen şu anda beta aşamasındadır.
 :::
 
-Zen, opencode'daki diğer sağlayıcılar gibi çalışır. OpenCode Zen'e giriş yapar ve API anahtarınızı alırsınız. Tamamen isteğe bağlıdır ve opencode kullanmak için bunu kullanmanıza gerek yoktur.
+Zen, openstudier'daki diğer sağlayıcılar gibi çalışır. OpenStudier Zen'e giriş yapar ve API anahtarınızı alırsınız. Tamamen isteğe bağlıdır ve openstudier kullanmak için bunu kullanmanıza gerek yoktur.
 
 ---
 
@@ -22,7 +22,7 @@ Zen, opencode'daki diğer sağlayıcılar gibi çalışır. OpenCode Zen'e giri�
 Piyasada çok sayıda model var ancak bu modellerden sadece birkaçı kodlama ajanı olarak iyi çalışır. Ayrıca çoğu sağlayıcı çok farklı şekilde yapılandırılmıştır; bu nedenle çok farklı performans ve kalite elde edersiniz.
 
 :::tip
-opencode ile iyi çalışan seçkin bir grup model ve sağlayıcıyı test ettik.
+openstudier ile iyi çalışan seçkin bir grup model ve sağlayıcıyı test ettik.
 :::
 
 Bu nedenle, OpenRouter gibi bir şey üzerinden bir model kullanıyorsanız, istediğiniz modelin en iyi sürümünü alıp almadığınızdan asla emin olamazsınız.
@@ -33,16 +33,16 @@ Bunu düzeltmek için birkaç şey yaptık:
 2. Daha sonra bunların doğru şekilde sunulduğundan emin olmak için birkaç sağlayıcıyla çalıştık.
 3. Son olarak model/sağlayıcı kombinasyonunu karşılaştırdık ve önermekten memnuniyet duyduğumuz bir liste oluşturduk.
 
-OpenCode Zen, bu modellere erişmenizi sağlayan bir AI ağ geçididir.
+OpenStudier Zen, bu modellere erişmenizi sağlayan bir AI ağ geçididir.
 
 ---
 
 ## Nasıl çalışır
 
-OpenCode Zen, opencode'daki diğer sağlayıcılar gibi çalışır.
+OpenStudier Zen, openstudier'daki diğer sağlayıcılar gibi çalışır.
 
-1. **<a href={console}>OpenCode Zen</a>**'de oturum açın, fatura ayrıntılarınızı ekleyin ve API anahtarınızı kopyalayın.
-2. TUI'de `/connect` komutunu çalıştırın, OpenCode Zen'i seçin ve API anahtarınızı yapıştırın.
+1. **<a href={console}>OpenStudier Zen</a>**'de oturum açın, fatura ayrıntılarınızı ekleyin ve API anahtarınızı kopyalayın.
+2. TUI'de `/connect` komutunu çalıştırın, OpenStudier Zen'i seçin ve API anahtarınızı yapıştırın.
 3. Önerdiğimiz modellerin listesini görmek için TUI'de `/models` komutunu çalıştırın.
 
 İstek başına ücretlendirilirsiniz ve hesabınıza kredi ekleyebilirsiniz.
@@ -89,7 +89,7 @@ Modellerimize aşağıdaki API uç noktaları aracılığıyla da erişebilirsin
 | Qwen3 Coder 480B   | qwen3-coder        | `https://opencode.ai/zen/v1/chat/completions`      | `@ai-sdk/openai-compatible` |
 | Big Pickle         | big-pickle         | `https://opencode.ai/zen/v1/chat/completions`      | `@ai-sdk/openai-compatible` |
 
-opencode yapılandırmanızdaki [model kimliği](/docs/config/#models) `opencode/<model-id>` biçimini kullanır. Örneğin, GPT 5.2 Codex için yapılandırmanızda `opencode/gpt-5.2-codex` kullanırsınız.
+openstudier yapılandırmanızdaki [model kimliği](/docs/config/#models) `openstudier/<model-id>` biçimini kullanır. Örneğin, GPT 5.2 Codex için yapılandırmanızda `openstudier/gpt-5.2-codex` kullanırsınız.
 
 ---
 
@@ -157,8 +157,8 @@ Kredi kartı ücretleri maliyetine yansıtılır (işlem başına %4,4 + 0,30$);
 
 Ücretsiz modeller:
 
-- MiniMax M2.5 Free, sınırlı bir süre için OpenCode'da ücretsizdir. Ekip bu süreyi geri bildirim toplamak ve modeli iyileştirmek için kullanıyor.
-- Big Pickle, sınırlı bir süre için OpenCode'da ücretsiz olan gizli bir modeldir. Ekip bu süreyi geri bildirim toplamak ve modeli iyileştirmek için kullanıyor.
+- MiniMax M2.5 Free, sınırlı bir süre için OpenStudier'da ücretsizdir. Ekip bu süreyi geri bildirim toplamak ve modeli iyileştirmek için kullanıyor.
+- Big Pickle, sınırlı bir süre için OpenStudier'da ücretsiz olan gizli bir modeldir. Ekip bu süreyi geri bildirim toplamak ve modeli iyileştirmek için kullanıyor.
 
 Sorularınız varsa <a href={email}>bizimle iletişime geçin</a>.
 
@@ -247,9 +247,9 @@ Kendi anahtarlarınızı kullandığınızda, tokenler Zen tarafından değil, d
 
 ## Hedefler
 
-OpenCode Zen'i şu amaçlarla oluşturduk:
+OpenStudier Zen'i şu amaçlarla oluşturduk:
 
 1. Kodlama ajanları için en iyi modelleri/sağlayıcıları **kıyaslamak**.
 2. **En yüksek kaliteli** seçeneklere erişmek ve performansı düşürmemek veya daha ucuz sağlayıcılara yönlendirmemek.
 3. Maliyetine satış yaparak herhangi bir **fiyat düşüşünü** yansıtmak; böylece tek kâr marjı işlem ücretlerimizi karşılamaktır.
-4. Başka bir kodlama ajanıyla kullanmanıza izin vererek **kilitlenmeyi önlemek**. Ve her zaman OpenCode ile başka bir sağlayıcıyı kullanmanıza izin vermek.
+4. Başka bir kodlama ajanıyla kullanmanıza izin vererek **kilitlenmeyi önlemek**. Ve her zaman OpenStudier ile başka bir sağlayıcıyı kullanmanıza izin vermek.

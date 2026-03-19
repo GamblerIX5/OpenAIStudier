@@ -1,6 +1,6 @@
-# OpenCode Desktop
+# OpenStudier Desktop
 
-Native OpenCode desktop app, built with Tauri v2.
+Native OpenStudier desktop app, built with Tauri v2.
 
 ## Prerequisites
 

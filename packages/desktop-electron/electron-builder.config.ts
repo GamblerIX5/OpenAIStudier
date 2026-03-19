@@ -1,13 +1,13 @@
 import type { Configuration } from "electron-builder"
 
 const channel = (() => {
-  const raw = process.env.OPENCODE_CHANNEL
+  const raw = process.env.OPENSTUDIER_CHANNEL
   if (raw === "dev" || raw === "beta" || raw === "prod") return raw
   return "dev"
 })()
 
 const getBase = (): Configuration => ({
-  artifactName: "opencode-electron-${os}-${arch}.${ext}",
+  artifactName: "openstudier-electron-${os}-${arch}.${ext}",
   directories: {
     output: "dist",
     buildResources: "resources",
@@ -17,7 +17,7 @@ const getBase = (): Configuration => ({
     {
       from: "resources/",
       to: "",
-      filter: ["opencode-cli*"],
+      filter: ["openstudier-cli*"],
     },
     {
       from: "native/",
@@ -39,8 +39,8 @@ const getBase = (): Configuration => ({
     sign: true,
   },
   protocols: {
-    name: "OpenCode",
-    schemes: ["opencode"],
+    name: "OpenStudier",
+    schemes: ["openstudier"],
   },
   win: {
     icon: `resources/icons/icon.ico`,
@@ -66,29 +66,29 @@ function getConfig() {
     case "dev": {
       return {
         ...base,
-        appId: "ai.opencode.desktop.dev",
-        productName: "OpenCode Dev",
-        rpm: { packageName: "opencode-dev" },
+        appId: "ai.openstudier.desktop.dev",
+        productName: "OpenStudier Dev",
+        rpm: { packageName: "openstudier-dev" },
       }
     }
     case "beta": {
       return {
         ...base,
-        appId: "ai.opencode.desktop.beta",
-        productName: "OpenCode Beta",
-        protocols: { name: "OpenCode Beta", schemes: ["opencode"] },
-        publish: { provider: "github", owner: "anomalyco", repo: "opencode-beta", channel: "latest" },
-        rpm: { packageName: "opencode-beta" },
+        appId: "ai.openstudier.desktop.beta",
+        productName: "OpenStudier Beta",
+        protocols: { name: "OpenStudier Beta", schemes: ["openstudier"] },
+        publish: { provider: "github", owner: "anomalyco", repo: "openstudier-beta", channel: "latest" },
+        rpm: { packageName: "openstudier-beta" },
       }
     }
     case "prod": {
       return {
         ...base,
-        appId: "ai.opencode.desktop",
-        productName: "OpenCode",
-        protocols: { name: "OpenCode", schemes: ["opencode"] },
-        publish: { provider: "github", owner: "anomalyco", repo: "opencode", channel: "latest" },
-        rpm: { packageName: "opencode" },
+        appId: "ai.openstudier.desktop",
+        productName: "OpenStudier",
+        protocols: { name: "OpenStudier", schemes: ["openstudier"] },
+        publish: { provider: "github", owner: "anomalyco", repo: "openstudier", channel: "latest" },
+        rpm: { packageName: "openstudier" },
       }
     }
   }

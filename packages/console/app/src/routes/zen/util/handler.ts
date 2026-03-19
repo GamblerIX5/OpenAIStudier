@@ -1,19 +1,19 @@
 import type { APIEvent } from "@solidjs/start/server"
-import { and, Database, eq, isNull, lt, or, sql } from "@opencode-ai/console-core/drizzle/index.js"
-import { KeyTable } from "@opencode-ai/console-core/schema/key.sql.js"
-import { BillingTable, LiteTable, SubscriptionTable, UsageTable } from "@opencode-ai/console-core/schema/billing.sql.js"
-import { centsToMicroCents } from "@opencode-ai/console-core/util/price.js"
-import { getMonthlyBounds, getWeekBounds } from "@opencode-ai/console-core/util/date.js"
-import { Identifier } from "@opencode-ai/console-core/identifier.js"
-import { Billing } from "@opencode-ai/console-core/billing.js"
-import { Actor } from "@opencode-ai/console-core/actor.js"
-import { WorkspaceTable } from "@opencode-ai/console-core/schema/workspace.sql.js"
-import { ZenData } from "@opencode-ai/console-core/model.js"
-import { Subscription } from "@opencode-ai/console-core/subscription.js"
-import { BlackData } from "@opencode-ai/console-core/black.js"
-import { UserTable } from "@opencode-ai/console-core/schema/user.sql.js"
-import { ModelTable } from "@opencode-ai/console-core/schema/model.sql.js"
-import { ProviderTable } from "@opencode-ai/console-core/schema/provider.sql.js"
+import { and, Database, eq, isNull, lt, or, sql } from "@openstudier/console-core/drizzle/index.js"
+import { KeyTable } from "@openstudier/console-core/schema/key.sql.js"
+import { BillingTable, LiteTable, SubscriptionTable, UsageTable } from "@openstudier/console-core/schema/billing.sql.js"
+import { centsToMicroCents } from "@openstudier/console-core/util/price.js"
+import { getMonthlyBounds, getWeekBounds } from "@openstudier/console-core/util/date.js"
+import { Identifier } from "@openstudier/console-core/identifier.js"
+import { Billing } from "@openstudier/console-core/billing.js"
+import { Actor } from "@openstudier/console-core/actor.js"
+import { WorkspaceTable } from "@openstudier/console-core/schema/workspace.sql.js"
+import { ZenData } from "@openstudier/console-core/model.js"
+import { Subscription } from "@openstudier/console-core/subscription.js"
+import { BlackData } from "@openstudier/console-core/black.js"
+import { UserTable } from "@openstudier/console-core/schema/user.sql.js"
+import { ModelTable } from "@openstudier/console-core/schema/model.sql.js"
+import { ProviderTable } from "@openstudier/console-core/schema/provider.sql.js"
 import { logger } from "./logger"
 import {
   AuthError,
@@ -33,8 +33,8 @@ import { createRateLimiter } from "./rateLimiter"
 import { createDataDumper } from "./dataDumper"
 import { createTrialLimiter } from "./trialLimiter"
 import { createStickyTracker } from "./stickyProviderTracker"
-import { LiteData } from "@opencode-ai/console-core/lite.js"
-import { Resource } from "@opencode-ai/console-resource"
+import { LiteData } from "@openstudier/console-core/lite.js"
+import { Resource } from "@openstudier/console-resource"
 import { i18n, type Key } from "~/i18n"
 import { localeFromRequest } from "~/lib/language"
 
@@ -75,7 +75,7 @@ export async function handler(
   const t = (key: Key, params?: Record<string, string | number>) => resolve(dict[key], params)
   const ADMIN_WORKSPACES = [
     "wrk_01K46JDFR0E75SG2Q8K172KF3Y", // frank
-    "wrk_01K6W1A3VE0KMNVSCQT43BG2SX", // opencode bench
+    "wrk_01K6W1A3VE0KMNVSCQT43BG2SX", // openstudier bench
   ]
 
   try {
@@ -84,10 +84,10 @@ export async function handler(
     const model = opts.parseModel(url, body)
     const isStream = opts.parseIsStream(url, body)
     const ip = input.request.headers.get("x-real-ip") ?? ""
-    const sessionId = input.request.headers.get("x-opencode-session") ?? ""
-    const requestId = input.request.headers.get("x-opencode-request") ?? ""
-    const projectId = input.request.headers.get("x-opencode-project") ?? ""
-    const ocClient = input.request.headers.get("x-opencode-client") ?? ""
+    const sessionId = input.request.headers.get("x-openstudier-session") ?? ""
+    const requestId = input.request.headers.get("x-openstudier-request") ?? ""
+    const projectId = input.request.headers.get("x-openstudier-project") ?? ""
+    const ocClient = input.request.headers.get("x-openstudier-client") ?? ""
     logger.metric({
       is_tream: isStream,
       session: sessionId,
@@ -157,10 +157,10 @@ export async function handler(
           })
           headers.delete("host")
           headers.delete("content-length")
-          headers.delete("x-opencode-request")
-          headers.delete("x-opencode-session")
-          headers.delete("x-opencode-project")
-          headers.delete("x-opencode-client")
+          headers.delete("x-openstudier-request")
+          headers.delete("x-openstudier-session")
+          headers.delete("x-openstudier-project")
+          headers.delete("x-openstudier-client")
           return headers
         })(),
         body: reqBody,
